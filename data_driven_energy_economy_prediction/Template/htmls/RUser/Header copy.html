@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<body>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Remote User</title>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .container {
+        width: fit-content;
+        margin: 10px auto;
+        padding: 5px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container-content {
+        max-width: 90%;
+        /* Adjust max-width for better readability */
+        margin: 20px auto;
+        /* Reduced margin for better spacing */
+        padding: 40px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Subtle box shadow */
+        overflow: hidden;
+
+      }
+
+      .content {
+        display: flex;
+        justify-content: center;
+        /* Center logo and nav links */
+        align-items: center;
+        /* Vertically center items */
+        /*margin-top: 1vh;*/
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      ul {
+        max-width: 500px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 23px;
+      }
+
+      /* Change the link color to #111 (black) on hover */
+      li a:hover {
+        background-color: #7b7b7b;
+      }
+
+
+      .left-section {
+        flex: 1;
+        overflow: hidden;
+      }
+
+      .left-section img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .right-section {
+        flex: 1;
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #666;
+      }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <div class="container-nav">
+        <ul class="nav-links">
+          <li> <a href="{% url 'Predict_Energy_Economy_Type' %}">Predict Range</a>>
+          </li>
+          <li><a href="{% url 'ViewYourProfile' %}">View Your Profile</a></li>
+          <li><a href="{% url 'index' %}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    {% block userblock %}
+    {% endblock %}
+
+  </body>
+
+</html>

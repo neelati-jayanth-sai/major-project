@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .container {
+    width: fit-content;
+    margin: 10px auto;
+    padding: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container-content {
+    max-width: 90%;
+    /* Adjust max-width for better readability */
+    margin: 20px auto;
+    /* Reduced margin for better spacing */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    overflow: hidden;
+   
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    /* Center logo and nav links */
+    align-items: center;
+    /* Vertically center items */
+    /*margin-top: 1vh;*/
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  ul {
+    max-width:fit-content;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #7b7b7b;
+  } 
+
+  
+  .left-section {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .left-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+</style>
+
+<body>
+  <nav class="navbar" >
+    <div class="container" >
+      <ul class="nav-links" >
+        <li><a href="{% url 'login' %}">Home</a></li>
+        <li><a href="{% url 'login' %}">User</a></li>
+        <li><a href="{% url 'serviceproviderlogin' %}"> Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-content ">
+    <h1 align="center">Data Driven Energy Economy Prediction for
+      Electric City Buses</h1>
+    <div class="content">
+      <div class="left-section">
+        <img src="{% static 'bus.jpg'%}" alt="Image">
+      </div>
+      <div class="right-section">
+
+        <p style="font-size: 18px;">Electrification of transportation systems is increasing, in
+          particular city buses raise enormous potential. Deep understanding of real-world driving data is
+          essential for vehicle design and fleet operation. Various technological aspects must be
+          considered to run alternative powertrains efficiently. Uncertainty about energy demand results
+          in conservative design which implies inefficiency and high costs. Both, industry, and academia
+          miss analytical solutions to solve this problem due to complexity and interrelation of
+          parameters. Precise energy demand prediction enables significant cost reduction by optimized
+          operations. This paper aims at increased transparency of battery electric buses’ (BEB) energy
+          economy.We introduce novel sets of explanatory variables to characterize speed profiles, which
+          we utilize in powerful machine learning methods. We develop and comprehensively assess 5
+          different algorithms regarding prediction accuracy, robustness, and overall applicability.
+          Achieving a prediction accuracy of more than 94%, our models performed excellent in combination
+          with the sophisticated selection of features. The presented methodology bears enormous potential
+          for manufacturers, fleet operators and communities to transform mobility and thus pave the way
+          for sustainable, public transportation.</p>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

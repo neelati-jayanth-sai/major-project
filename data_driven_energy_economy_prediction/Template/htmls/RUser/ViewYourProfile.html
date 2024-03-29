@@ -1,0 +1,264 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+{% load static %}
+<style>
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+    .navbar {
+        background-color: #333;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        /* Adjust max-width for better readability */
+        margin: 20px auto;
+        /* Reduced margin for better spacing */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Subtle box shadow */
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        /* Center logo and nav links */
+        align-items: center;
+        /* Vertically center items */
+    }
+
+    .container-content {
+        max-width: 90%;
+        /* Adjust max-width for better readability */
+        margin: 20px auto;
+        /* Reduced margin for better spacing */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* Subtle box shadow */
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        /* Center logo and nav links */
+        align-items: center;
+        /* Vertically center items */
+        margin-top: 5vh;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    ul {
+        max-width: fit-content;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      li {
+        float: left;
+      }
+      
+      li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 10px 12px;
+        text-decoration: none;
+        font-size: 18px;
+      }
+      
+      /* Change the link color to #111 (black) on hover */
+      li a:hover {
+        background-color: #7b7b7b;
+      } 
+
+   
+
+    .left-section {
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .left-section img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .right-section {
+        flex: 1;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    /* Add the following styles for the form */
+
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    form fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    form table {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    form table td {
+        padding: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"],
+    form input[type="number"],
+    form input[type="date"],
+    form textarea,
+    form select {
+        /* width: 100%; */
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    form input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    form input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    button {
+        width: 100%;
+        background-color: #f44336;
+        /* Red */
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    h2{
+        font-size: 25px;
+    }
+
+    button:hover {
+        background-color: #d32f2f;
+    }
+    .style4{
+        font-size: 20px;
+        font-weight: semibold;
+    }
+    .style6{
+        font-size: 20px;
+        
+        
+    }
+</style>
+
+<body>
+
+
+    <div class="container-content ">
+        <!-- <div class="left-section">
+            <img src="{% static 'bus.jpg'%}" alt="Image">
+        </div> -->
+        <div class="right-section">
+            <h2 align="center" style="font-size: 30px;">Profile Details</h2>
+            <form role="form" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <hr>
+                    <div class="form-group">
+                        <table>
+                            <tr>
+                                <td><span class="style4">Username</span></td>
+                                <td align="left"><span class="style6">{{object.username}}</span></td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="style4">Email Id</span></td>
+                                <td align="left"><span class="style6">{{object.email}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="style4">Mobile Number</span></td>
+                                <td align="left"><span class="style6">{{object.phoneno}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="style4">Gender</span></td>
+                                <td align="left"><span class="style6">{{object.gender}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="style4">Address</span></td>
+                                <td align="left"><span class="style6">{{object.address}}</span></td>
+
+                            </tr>
+                            <tr>
+                                <td><span class="style4">Country</span></td>
+                                <td align="left"><span class="style6">{{object.country}}</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="style4">State</span></td>
+                                <td align="left"><span class="style6">{{object.state}}</span></td>
+                            </tr>
+                            <tr><td><span class="style4">City</span></td>
+                                <td align="left"><span class="style6">{{object.city}}</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </form>
+
+
+        </div>
+    </div>
+</body>
+
+{% endblock %}

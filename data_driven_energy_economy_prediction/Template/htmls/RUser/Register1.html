@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: fit-content;
+    /* Adjust max-width for better readability */
+    margin: 10px auto;
+    /* Reduced margin for better spacing */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    /* Center logo and nav links */
+    align-items: center;
+    /* Vertically center items */
+  }
+
+  .container {
+    width: fit-content;
+    margin: 10px auto;
+    padding: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  ul {
+    max-width: 500px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #7b7b7b;
+  } 
+
+
+  .left-section {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .left-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Add the following styles for the form */
+
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  form table {
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 15vh;
+  }
+
+  form table td {
+    padding: 5px;
+  }
+
+  form input[type="text"],
+  form input[type="password"],
+  form input[type="email"],
+  form input[type="number"],
+  form input[type="date"],
+  form textarea,
+  form select {
+    /* width: 100%; */
+    font-size: 20px;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+  }
+
+  form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  button {
+    width: 100%;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #d32f2f;
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="{% url 'login' %}">Home</a></li>
+        <li><a href="{% url 'login' %}">User</a></li>
+        <li><a href="{% url 'serviceproviderlogin' %}"> Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-content ">
+    <!-- <div class="left-section">
+      <img src="{% static 'bus.jpg'%}" alt="Image">
+    </div> -->
+    <div class="right-section">
+      <h1 align="center">Fill the registeration form</h1>
+      <form role="form" method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <p>
+            {% load static %}
+          </p>
+          <table width="719" border="0" align="center" >
+            <tr>
+              <td width="160"><span style="font-size:20px;font-weight:semibold">Username</span></td>
+              <td width="173"><span>
+                  <input type="text" name="username" id="username" placeholder="User Name" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Password</span></td>
+              <td><span>
+                  <input type="password" name="password" id="password" placeholder="Password" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Email Id</span></td>
+              <td><span>
+                  <input type="email" name="email" id="email" placeholder="Enter Email" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Address</span></td>
+              <td><span>
+                  <textarea name="address" placeholder="Enter Address"></textarea>
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Gender</span></td>
+              <td>
+                <select name="gender">
+                  <option>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Mobile Number</span></td>
+              <td><span>
+                  <input type="number" name="phoneno" id="phoneno" placeholder="Enter Mobile Number" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">Country Name</span></td>
+              <td><span>
+                  <input type="text" name="country" id="country" placeholder="Enter Country Name" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">State Name</span></td>
+              <td><span>
+                  <input type="text" name="state" id="state" placeholder="Enter State Name" required="required" />
+                </span></td>
+            </tr>
+            <tr>
+              <td><span style="font-size:20px;font-weight:semibold">City Name</span></td>
+              <td><span>
+                  <input type="text" name="city" id="city" placeholder="Enter City Name" required="required" />
+                </span></td>
+            </tr>
+            
+          </table>
+          <div align="center">
+            <span><input type="submit" name="submit" value="Register" style="font-size:20px;font-weight:semibold;margin-top: 3vh;"/></span>
+          </div>
+        </fieldset>
+      </form>
+      <table border="0" align="center" style="padding-top: 3vh;">
+        <tr>
+          <td width="500" style="padding: 5px;">
+            <div align="center"><span style="font-size: 25px; font-weight:bold;">Registered Status </span>
+            </div>
+            <div align="center"><span style="font-size: 25px; font-weight:semibold;color:rgb(19, 180, 19)">{{object}}</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+</body>
+
+</html>

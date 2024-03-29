@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .container {
+    width: fit-content;
+    margin: 10px auto;
+    padding: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container-content {
+    max-width: 90%;
+    /* Adjust max-width for better readability */
+    margin: 20px auto;
+    /* Reduced margin for better spacing */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* Center logo and nav links */
+    align-items: center;
+    /* Vertically center items */
+    margin-top: 11vh;
+
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  ul {
+    max-width: fit-content;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #7b7b7b;
+  }
+
+
+  .left-section {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .left-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Add the following styles for the form */
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form {
+    height: 80vh;
+  }
+
+  .register-button {
+    font-size: large;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: large;
+  }
+
+  input[type="submit"] {
+    font-size: large;
+    width: 100%;
+    background-color: #4caf50;
+    /* Green */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  button {
+    width: 100%;
+    background-color: #f44336;
+    /* Red */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #d32f2f;
+  }
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="{% url 'login' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">User</a></li>
+                <li><a href="{% url 'serviceproviderlogin' %}"> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-content ">
+        <div class="left-section">
+            <img src="{% static 'bus3.jpg'%}" alt="Image">
+        </div>
+        <div class="right-section">
+            <h1 align="center">Admin Login</h1>
+            <form method="POST" role="form">
+                {% csrf_token %}
+
+                <fieldset>
+                    {% load static %}
+                   
+                    <div class="form-group">
+                        <input type="text" name="username" placeholder="User Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div>
+                        <input type="submit" name="submit1" class="register-button" value="Login">
+                    </div>
+                </fieldset>
+                <br><br>
+                    <!-- <button class="login-button"><a href="{% url 'login' %}">User
+                            Login</a></button> -->
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+{% load static %}
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: fit-content;
+    /* Adjust max-width for better readability */
+    margin: 10px auto;
+    /* Reduced margin for better spacing */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    /* Center logo and nav links */
+    align-items: center;
+    /* Vertically center items */
+  }
+
+.container-content {
+    max-width: 90%;
+    /* Adjust max-width for better readability */
+    margin: 20px auto;
+    /* Reduced margin for better spacing */
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow */
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    /* Center logo and nav links */
+    align-items: center;
+   
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  ul {
+    max-width: fit-content;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #7b7b7b;
+  } 
+
+
+  .left-section {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .left-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Add the following styles for the form */
+
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  form table {
+    width: 100%;
+    border-radius: 10px;
+    
+  }
+
+  form table td {
+    padding: 5px;
+  }
+
+  form input[type="text"],
+  form input[type="password"],
+  form input[type="email"],
+  form input[type="number"],
+  form input[type="date"],
+  form textarea,
+  form select {
+    /* width: 100%; */
+    font-size: 20px;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+  }
+
+  form input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  button {
+    width: 100%;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #d32f2f;
+  }
+  .Predict {
+    font-size: 25px;
+  }
+</style>
+
+<body>
+
+  <div class="container-content ">
+    <!-- <div class="left-section">
+      <img src="{% static 'bus.jpg'%}" alt="Image">
+    </div> -->
+    <div class="right-section">
+      <form role="form" method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <p class="text-uppercase pull-center" style="font-size: 25px; font-weight: bold" align="center">Prediction of Range</p>
+          <hr>
+        
+          {% csrf_token %}
+          <table width="992" align="center">
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Bus Name<span style="color: red">*</span></div>
+              </td>
+              <td align="right" align="right"><input  type="text" name="Bus_Name"></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Company<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Company"></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Battery Capacity (kWh)<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Battery_Capacity_kWh" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Base Energy Consumption (kWh/km)<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Base_Energy_Consumption_kWh_km" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Speed (km/h)<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Speed_km_h" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Passengers<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Passengers" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Temperature (°C)<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Temperature_C" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Terrain<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Terrain" required></td>
+            </tr>
+            <tr>
+              <td height="44">
+                <div align="left" style="font-size: 20px;">Standard Range (km)<span style="color: red">*</span></div>
+              </td>
+              <td align="right"><input type="text" name="Standard_Range_km" required></td>
+            </tr>
+          </table>
+          <table width="992" align="center">
+            <tr>
+              <td height="20">
+                <div align="center" align="right"><input type="submit" value="Predict" style="font-size: 20px"></div>
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+        
+      </form>
+
+      <form role="form" method="POST" align="center" style=" margin-top: 30px">
+        {% csrf_token %}
+        <fieldset>
+
+          <hr>
+          <div align="center">
+            <table width="844" height="71" border="0" align="center">
+              <tr>
+                <td width="570">
+                  <div align="center"><span class="Predict" style="font-size: 25px; font-weight: bold;margin-left: 20px">Predicted Range :
+                      {{ objs.0 }} Km </span></div>
+                </td>
+              </tr>
+            </table>
+
+
+
+          </div>
+
+
+
+
+        </fieldset>
+      </form>
+
+
+
+      {% endblock %}
+    </div>
+  </div>
+</body>
+
+</html>

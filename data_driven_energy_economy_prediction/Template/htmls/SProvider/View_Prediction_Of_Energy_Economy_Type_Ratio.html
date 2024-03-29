@@ -1,0 +1,237 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+<style>
+	body {
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: #f8f9fa;
+	}
+
+	.navbar {
+		background-color: #333;
+		color: #fff;
+		overflow: hidden;
+	}
+
+	.container {
+		max-width: 1200px;
+		/* Adjust max-width for better readability */
+		margin: 20px auto;
+		/* Reduced margin for better spacing */
+		padding: 10px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		/* Subtle box shadow */
+		overflow: hidden;
+
+	}
+
+	.container-content {
+		max-width: 90%;
+		/* Adjust max-width for better readability */
+		margin: 20px auto;
+		/* Reduced margin for better spacing */
+		padding: 10px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		/* Subtle box shadow */
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		/* Center logo and nav links */
+		align-items: center;
+		/* Vertically center items */
+	}
+
+	.viewclients {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		margin: 0;
+		padding: 0;
+		background-color: #f8f9fa;
+	}
+
+	.logo {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.nav-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.nav-links li {
+		display: inline-block;
+		margin-left: 20px;
+	}
+
+	.nav-links li a {
+		color: #333;
+		text-decoration: none;
+		transition: color 0.3s ease;
+		/* Smooth color transition */
+	}
+
+	.nav-links li a:hover {
+		color: #ffd700;
+		/* Change color on hover */
+	}
+
+
+	h1 {
+		font-size: 2.5rem;
+		color: #333;
+		margin-bottom: 20px;
+	}
+
+	p {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: #666;
+	}
+
+	/* Add the following styles for the form */
+
+	form {
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	form fieldset {
+		border: none;
+		padding: 0;
+		margin: 0;
+		margin-bottom: 35px;
+	}
+
+	form table {
+		width: 100%;
+		border-radius: 10px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	}
+
+	form table td {
+		padding: 10px;
+	}
+
+	form input[type="text"],
+	form input[type="password"],
+	form input[type="email"],
+	form input[type="number"],
+	form input[type="date"],
+	form textarea,
+	form select {
+		/* width: 100%; */
+		padding: 8px;
+		border-radius: 4px;
+		border: 1px solid #ccc;
+		margin-bottom: 10px;
+		box-sizing: border-box;
+	}
+
+	form input[type="submit"] {
+		background-color: #4caf50;
+		color: white;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	form input[type="submit"]:hover {
+		background-color: #45a049;
+	}
+
+	button {
+		width: 100%;
+		background-color: #f44336;
+		/* Red */
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: #d32f2f;
+	}
+</style>
+
+<body>
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+
+
+
+					<form role="form" method="POST">
+						{% csrf_token %}
+						<fieldset>
+							<h2 align="center" class="text-uppercase pull-center style1">View Energy Economy Prediction
+								Type Ratio Details</h2>
+							<hr>
+							<div>
+								<table border="3" align="center" bordercolor="black">
+									<tr>
+										<td bgcolor="white">
+											<div align="center"><span class="style10 style7">View Energy Economy
+													Prediction Type</span></div>
+										</td>
+										<td bgcolor="white">
+											<div align="center"><span class="style10 style7">Ratio</span></div>
+										</td>
+									</tr>
+									{% for object in objs %}
+									<tr>
+										<td bgcolor="white" style=" font-size:20px; font-family:fantasy">
+											<div align="center">{{object.names}}</div>
+										</td>
+										<td bgcolor="white" style="font-family:monospace; font-size:19px; ">
+											<div align="center" class="style9"><span
+													class="style7">{{object.ratio}}</span></div>
+										</td>
+									</tr>
+
+									{% endfor %}
+								</table>
+
+
+
+							</div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+	<tr>

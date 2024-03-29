@@ -1,0 +1,35 @@
+Data Driven Energy Economy Prediction for Electric City Buses Using Machine Learning
+
+
+IEEE Transaction on Machine Learning,Volume:11,Issue Date:04.September.2023
+
+battery electric buses, energy demand prediction, feature extraction, machine learning,meta modeling
+
+
+Data_Driven_Energy_Economy_Prediction
+
+
+data_driven_energy_economy_prediction
+
+
+
+energy_economy_prediction
+
+
+Fid	
+Brand	
+Model	
+AccelSec	
+TopSpeed_KmH	
+Range_Km	
+Efficiency_WhKm	
+FastCharge_KmH	
+RapidCharge	
+PowerTrain	
+PlugType	
+BodyStyle	
+Segment	
+Charging_Price
+Prediction
+
+
