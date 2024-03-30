@@ -22,28 +22,19 @@
     overflow: hidden;
   }
 
-  .container {
-    max-width: fit-content;
-    /* Adjust max-width for better readability */
+ /* .container-content   {
     margin: 10px auto;
-    /* Reduced margin for better spacing */
     padding: 10px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Subtle box shadow */
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    /* Center logo and nav links */
-    align-items: center;
-    /* Vertically center items */
-  }
+
+  }*/
 
   .container {
     width: fit-content;
-    margin: 10px auto;
-    padding: 5px;
+    margin: 5px auto;
+    padding: 1px;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
@@ -56,7 +47,7 @@
   }
 
   ul {
-    max-width: 500px;
+    max-width: fit-content;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -212,27 +203,27 @@
           </p>
           <table width="719" border="0" align="center" >
             <tr>
-              <td width="160"><span style="font-size:20px;font-weight:semibold">Username</span></td>
+              <td width="160"><span style="font-size:20px;font-weight:semibold">Username<span style="color: red;">*</span></span></td>
               <td width="173"><span>
-                  <input type="text" name="username" id="username" placeholder="User Name" required="required" />
+                  <input type="text" name="username" id="username" placeholder="User name" required="required" />
                 </span></td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">Password</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">Password<span style="color: red;">*</span></span></td>
               <td><span>
                   <input type="password" name="password" id="password" placeholder="Password" required="required" />
                 </span></td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">Email Id</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">Email Id<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="email" name="email" id="email" placeholder="Enter Email" required="required" />
+                  <input type="email" name="email" id="email" placeholder="Email" required="required" />
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">Address</span></td>
               <td><span>
-                  <textarea name="address" placeholder="Enter Address"></textarea>
+                  <textarea name="address" placeholder="Address"></textarea>
                 </span></td>
             </tr>
             <tr>
@@ -246,27 +237,27 @@
               </td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">Mobile Number</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">Mobile number<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="number" name="phoneno" id="phoneno" placeholder="Enter Mobile Number" required="required" />
+                  <input type="number" name="phoneno" id="phoneno" placeholder="Mobile number" required="required" />
                 </span></td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">Country Name</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">Country name<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="country" id="country" placeholder="Enter Country Name" required="required" />
+                  <input type="text" name="country" id="country" placeholder="Country name" required="required" />
                 </span></td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">State Name</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">State name<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="state" id="state" placeholder="Enter State Name" required="required" />
+                  <input type="text" name="state" id="state" placeholder="State name" required="required" />
                 </span></td>
             </tr>
             <tr>
-              <td><span style="font-size:20px;font-weight:semibold">City Name</span></td>
+              <td><span style="font-size:20px;font-weight:semibold">City<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="city" id="city" placeholder="Enter City Name" required="required" />
+                  <input type="text" name="city" id="city" placeholder="City name" required="required" />
                 </span></td>
             </tr>
             
