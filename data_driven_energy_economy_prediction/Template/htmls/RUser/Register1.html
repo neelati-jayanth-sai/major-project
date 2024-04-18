@@ -137,6 +137,7 @@
   form input[type="email"],
   form input[type="number"],
   form input[type="date"],
+  form input[type="tel"],
   form textarea,
   form select {
     /* width: 100%; */
@@ -205,19 +206,19 @@
             <tr>
               <td width="160"><span style="font-size:20px;font-weight:semibold">Username<span style="color: red;">*</span></span></td>
               <td width="173"><span>
-                  <input type="text" name="username" id="username" placeholder="User name" required="required" />
+                  <input type="text" name="username" id="username" placeholder="User name" required  minlength="5"/>
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">Password<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="password" name="password" id="password" placeholder="Password" required="required" />
+                  <input type="password" name="password" id="password" placeholder="Password" required minlength="8" />
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">Email Id<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="email" name="email" id="email" placeholder="Email" required="required" />
+                  <input type="email" name="email" id="email" placeholder="Email" required />
                 </span></td>
             </tr>
             <tr>
@@ -239,25 +240,25 @@
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">Mobile number<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="number" name="phoneno" id="phoneno" placeholder="Mobile number" required="required" />
+                  <input type="tel" name="phoneno" id="phoneno" placeholder="Mobile number" required pattern="[0-9]{10}" title="Invalid phone number">
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">Country name<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="country" id="country" placeholder="Country name" required="required" />
+                  <input type="text" name="country" id="country" placeholder="Country name" required />
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">State name<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="state" id="state" placeholder="State name" required="required" />
+                  <input type="text" name="state" id="state" placeholder="State name" required />
                 </span></td>
             </tr>
             <tr>
               <td><span style="font-size:20px;font-weight:semibold">City<span style="color: red;">*</span></span></td>
               <td><span>
-                  <input type="text" name="city" id="city" placeholder="City name" required="required" />
+                  <input type="text" name="city" id="city" placeholder="City name" required />
                 </span></td>
             </tr>
             

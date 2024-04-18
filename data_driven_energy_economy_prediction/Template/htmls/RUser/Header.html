@@ -31,7 +31,6 @@
         justify-content: space-between;
         align-items: center;
       }
-
       .container-content {
         max-width: 90%;
         /* Adjust max-width for better readability */
@@ -61,7 +60,7 @@
       }
 
       ul {
-        max-width: fit-content;
+        max-width: 500px;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -73,11 +72,11 @@
         align-items: center;
         justify-content: center;
       }
-
+    
       li {
         float: left;
       }
-
+    
       li a {
         display: block;
         color: black;
@@ -86,12 +85,12 @@
         text-decoration: none;
         font-size: 18px;
       }
-
+    
       /* Change the link color to #111 (black) on hover */
       li a:hover {
         background-color: #7b7b7b;
       }
-
+    
 
       .left-section {
         flex: 1;
@@ -131,7 +130,8 @@
     <nav class="navbar">
       <div class="container-nav">
         <ul class="nav-links">
-          <li><a href="{% url 'Predict_Energy_Economy_Type' %}">Predict Range</a></li>
+          <li> <a href="{% url 'Predict_Energy_Economy_Type' %}">Predict Range</a>
+          </li>
           <li><a href="{% url 'ViewYourProfile' %}">View Your Profile</a></li>
           <li><a href="{% url 'index' %}">Logout</a></li>
         </ul>
